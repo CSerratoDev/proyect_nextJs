@@ -13,13 +13,13 @@
     "@heroui/react": "^2.7.5",
     "framer-motion": "^12.5.0",
     "fs": "^0.0.1-security",
-    "next": "^15.2.2",
+    "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swr": "^2.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.14",
+    "@tailwindcss/postcss": "^4.0.15",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
