@@ -11,7 +11,7 @@ export default function AuthLayout({
             <div className="place-content-center place-self-center place-items-center text-center">
                 <div className="flex flex-col items-center bottom-10 relative">
                     <Image 
-                        src="/shop_donut.svg" 
+                        src="/shop.svg"
                         alt="logo" 
                         width={120} 
                         height={60}
