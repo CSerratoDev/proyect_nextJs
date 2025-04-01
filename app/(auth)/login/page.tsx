@@ -15,6 +15,8 @@ export default function Login() {
         authData.userPassword = formData.get("userPassword") as string;
         const {data} = await axios.post(`${API_URL}/auth/login`, {
             ... authData
+        }, {
+            withCredentials: true,
         });
         console.log(data);
         return;
