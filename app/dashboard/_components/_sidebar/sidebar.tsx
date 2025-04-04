@@ -5,7 +5,7 @@ import NavItem from "./NavItem";
 
 export default function Sidebar(){
     return(
-        <nav className="w-[10vh] h-[90vh] bg-orange-200 flex flex-col items-center justify-center gap-10">
+        <nav className="w-1/12 h-[90vh] bg-orange-200 flex flex-col items-center justify-center gap-10">
             <NavItem icon={
                 <GoHomeFill className="text-4xl"/>}
                 path="/dashboard"
