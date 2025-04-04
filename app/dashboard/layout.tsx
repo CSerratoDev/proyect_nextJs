@@ -2,10 +2,10 @@ import Header from "./_components/header";
 import Sidebar from "./_components/_sidebar/sidebar";
 
 export default function LayoutDashboard({
-    children, count
+    children, locations
 }:  Readonly<{ 
     children: React.ReactNode;
-    count: React.ReactNode; 
+    locations: React.ReactNode; 
 }>) {
     return (
         <div className="bg-orange-50 text-black">
@@ -13,7 +13,7 @@ export default function LayoutDashboard({
             <div className="flex flex-row items-center">
                 <Sidebar/>
                 {children}
-                {count}
+                {locations}
             </div>
         </div>
     );
