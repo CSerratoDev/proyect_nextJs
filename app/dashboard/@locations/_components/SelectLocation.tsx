@@ -12,7 +12,7 @@ export default function SelectLocation({locations} : {locations : Locations[]}) 
             mainWrapper: 'hover:ring-2 ring-red-500 rounded-xl transition-all',
         }}
             onChange={((e) => {
-                router.push(`/dashboard/?store=${e.target.value}`)
+                router.push(`/dashboard?store=${e.target.value}`)
             })}    
         >
             {locations.map((location: Locations) => {
