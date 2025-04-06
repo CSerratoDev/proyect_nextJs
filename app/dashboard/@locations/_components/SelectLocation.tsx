@@ -4,6 +4,7 @@ import { Locations } from "entities";
 import { useRouter } from "next/navigation";
 
 export default function SelectLocation({locations, store} : {locations : Locations[], store : string | string[] | undefined}) {
+
     const router = useRouter();
     return (
         <Select placeholder="Selecciona una ubicación" 
@@ -11,9 +12,9 @@ export default function SelectLocation({locations, store} : {locations : Locatio
             classNames={{
             mainWrapper: 'hover:ring-2 ring-red-500 rounded-xl transition-all',            
         }}
-            selectedKeys={store ? store : ""}
+            selectedKeys={store ? store : "0"}
             onChange={((e) => {
-                if (e.target.value === "") { 
+                if (e.target.value === "0" || e.target.value === "") { 
                     router.push(`/dashboard`)
                 } else {
                     router.push(`/dashboard?store=${e.target.value}`)
