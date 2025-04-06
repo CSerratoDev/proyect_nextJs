@@ -4,6 +4,7 @@ import { Locations } from "entities";
 import {cookies} from "next/headers";
 import SelectLocation from "./_components/SelectLocation";
 import { VscDebugBreakpointConditionalUnverified } from "react-icons/vsc";
+import LocationCard from "./_components/LocationCard";
 
 const LocationsPage = async ({searchParams}: { 
     searchParams : { [key: string]: string | string[] | undefined };
@@ -30,8 +31,11 @@ const LocationsPage = async ({searchParams}: {
     return (
         <div className="w-8/12">
             <div className="w-full flex flex-col items-center h-[90vh]">
-        <div className="w-1/2 my-10">
-                <SelectLocation locations={data} store={searchParams?.store}/>
+                <div className="w-1/2 my-10">
+                    <SelectLocation locations={data} store={searchParams?.store}/>
+                </div>
+                <div className="w-8/12">
+                   <LocationCard store={searchParams.store}/>
                 </div>
             </div>
         </div>
