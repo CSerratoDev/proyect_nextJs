@@ -14,9 +14,9 @@ export default async function EmployeesLocation({store} : {store : string | stri
     return data.map((employee) => {
         const fullName = employee.employeeName + ' ' + employee.employeeLastName;
         return (
-            <Card className="mx-10 my-20">
+            <Card key={employee.employeeId} className="mx-10 my-20">
                 <CardHeader>
-                    <p className="w-full"> Nombre: <b> {fullName}</b></p>
+                    <p className="w-full">Nombre:<b>{fullName}</b></p>
                 </CardHeader>    
                 <Divider/>
                 <CardBody>

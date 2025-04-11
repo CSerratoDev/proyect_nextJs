@@ -27,5 +27,5 @@ export interface Manager {
     managerEmail: string;
     managerPhoneNumber: string;
     location: Location;
-    user?: any
+    user: any
 }
