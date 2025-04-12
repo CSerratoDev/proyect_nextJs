@@ -1,23 +1,20 @@
-import { API_URL, TOKEN_NAME } from "../../../constants";
+import { API_URL} from "../../../constants";
 import axios from "axios";
 import { Locations } from "entities";
-import {cookies} from "next/headers";
 import SelectLocation from "./_components/SelectLocation";
-import { VscDebugBreakpointConditionalUnverified } from "react-icons/vsc";
 import LocationCard from "./_components/LocationCard";
 import FormNewLocation from "./_components/FormNewLocation";
 import DeleteLocationButton from "./_components/DeleteLocationButton";
+import { authHeaders } from "helpers/authHeaders";
 
 const LocationsPage = async ({searchParams}: { 
     searchParams : { [key: string]: string | string[] | undefined };
 }) => {
-    const userCookies = await cookies();
-    const token = (await userCookies).get(TOKEN_NAME) ?.value;
     let {data} = await axios.get<Locations[]>(
         `${API_URL}/locations`, 
         {
             headers: {
-                Authorization: `Bearer ${token}`,
+                ...authHeaders()
             }
         },
     ); 

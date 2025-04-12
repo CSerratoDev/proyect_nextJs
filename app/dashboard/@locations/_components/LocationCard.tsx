@@ -1,16 +1,15 @@
 import { Card, CardBody, CardHeader, Divider } from "@heroui/react";
 import axios from "axios";
-import { API_URL, TOKEN_NAME } from "../../../../constants";
+import { API_URL} from "../../../../constants";
 import { Locations } from "entities";
-import { cookies } from "next/headers";
 import Link from "next/link";
+import { authHeaders } from "helpers/authHeaders";
 
 export default async function LocationCard({store} : {store: string | string[] | undefined}) {
     if(!store) return null;
-    const token = (await cookies()).get(TOKEN_NAME)?.value;
     let {data} = await axios.get<Locations>(`${API_URL}/locations/${store}`, {
         headers: {
-            Authorization: `Bearer ${token}`,
+            ...authHeaders()
         }
     })
     return (
