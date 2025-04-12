@@ -23,9 +23,9 @@ export default function Login() {
                 withCredentials: true,
             });
             if (response.status === 201) router.push("/dashboard");
-            setSubmit(false)
-        } catch (error) {
-            setSubmit(false);
+                setSubmit(false)
+            } catch (error) {
+                setSubmit(false);
         }
         return;
     }
