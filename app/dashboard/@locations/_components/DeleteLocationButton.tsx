@@ -5,7 +5,7 @@ export default function DeleteLocationButton ({store} : {store: string | string[
     if(!store) return null;
     return (
         <form className="my-4" action={DeleteLocation}>
-            <Button type="submit" color="danger" >
+            <Button  color="danger" name="deleteValue" value={store} type="submit" >
                 Eliminar Tienda                    
             </Button>
         </form>
