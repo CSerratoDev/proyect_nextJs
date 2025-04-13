@@ -1,6 +1,5 @@
 "use client";
-import { Button, Input, Spinner } from "@heroui/react";
-import axios from "axios";
+import { Button, Input} from "@heroui/react";
 import Link from "next/link";
 import { API_URL } from "../../../constants";
 import { useState } from "react";
@@ -9,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function Login() {
     const [submit, setSubmit] = useState(false);
     const router = useRouter();
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: any) => {
         setSubmit(true);
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -17,10 +16,10 @@ export default function Login() {
         authData.userEmail = formData.get("userEmail") as string;
         authData.userPassword = formData.get("userPassword") as string;
         try {
-            const response = await axios.post(`${API_URL}/auth/login`, {
-                ...authData
-            }, {
-                withCredentials: true,
+            const response = await fetch(`${API_URL}/auth/login`, {
+                method: "POST",
+                body: JSON.stringify(authData),
+                credentials: "include",
             });
             if (response.status === 201) router.push("/dashboard");
                 setSubmit(false)

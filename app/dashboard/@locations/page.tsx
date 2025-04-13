@@ -1,5 +1,4 @@
 import { API_URL} from "../../../constants";
-import axios from "axios";
 import { Locations } from "entities";
 import SelectLocation from "./_components/SelectLocation";
 import LocationCard from "./_components/LocationCard";
@@ -7,17 +6,23 @@ import FormNewLocation from "./_components/FormNewLocation";
 import DeleteLocationButton from "./_components/DeleteLocationButton";
 import { authHeaders } from "helpers/authHeaders";
 
-const LocationsPage = async ({searchParams}: { 
+const LocationsPage = async ({
+    searchParams,
+}: { 
     searchParams : { [key: string]: string | string[] | undefined };
 }) => {
-    let {data} = await axios.get<Locations[]>(
+    const response = await fetch(
         `${API_URL}/locations`, 
         {
             headers: {
                 ...authHeaders()
+            },
+            next: {
+                tags: ["dashboard:locations"],
             }
         },
     ); 
+    let data : Locations[] = await response.json()
     data = [
         {
             locationId: 0,
@@ -25,13 +30,13 @@ const LocationsPage = async ({searchParams}: {
             locationLatLng: [0,0],
             locationAddress: "No existe"
         },
-        ... data
-    ]
+        ...data,
+    ];
     return (
-        <div className="w-8/12">
+        <div className="w-7/12">
             <div className="w-full flex flex-col items-center h-[90vh]">
                 <div className="w-1/2 my-10">
-                    <SelectLocation locations={data} store={searchParams?.store}/>
+                    <SelectLocation locations={data} store={searchParams.store}/>
                 </div>
                 <div className="w-8/12">
                    <LocationCard store={searchParams.store}/>
@@ -42,6 +47,7 @@ const LocationsPage = async ({searchParams}: {
                 <DeleteLocationButton store={searchParams.store}/>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default LocationsPage;
