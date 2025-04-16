@@ -27,7 +27,7 @@ export async function updateLocation(store: string, formData: FormData) {
         body: JSON.stringify(location),
         headers: {
             'content-type': 'application/json',
-            ...authHeaders()
+            ...(await authHeaders())
         }
     })
     const {locationId}: Locations = await response.json();

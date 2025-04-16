@@ -8,7 +8,7 @@ export default async function FormNewLocation({store} : {store : string | string
     if(store) return null;
     const responseManagers = await fetch(`${API_URL}/managers`, {
         headers: {
-            ...authHeaders()
+            ...(await authHeaders())
         },
         next: {
             tags: ["dashboard:managers"],
@@ -17,7 +17,7 @@ export default async function FormNewLocation({store} : {store : string | string
     const dataManagers : Manager[] = await responseManagers.json();
     const responseLocation = await fetch(`${API_URL}/locations`, {
         headers: {
-            ...authHeaders()
+            ...(await authHeaders())
         },
         next: {
             tags: ["dashboard:locations"],

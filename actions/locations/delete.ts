@@ -11,7 +11,7 @@ export default async function DeleteLocation(formDate: FormData) {
     fetch(`${API_URL}/locations/${locationId}`, {
         method: "DELETE",
         headers: {
-            ...authHeaders()
+            ...(await authHeaders())
         }
     })
     revalidateTag("dashboard:locations")

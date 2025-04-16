@@ -6,7 +6,7 @@ export default async function DashboardPage(
     const searchParams = await props.searchParams;
     return (
         <>
-        	<div className="h-full w-4/12 bg-red-100">
+        	<div className="h-full w-4/12 bg-zinc-50">
                 <div className="h-[90vh] overflow-hidden overflow-y-auto first:mt-0 last:mb-0">
                     {
                     searchParams.store ? (

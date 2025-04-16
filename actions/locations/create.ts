@@ -21,13 +21,12 @@ export async function createLocation(formData: FormData) {
         }
     }
     location.locationLatLng = locationLatLng;
-    console.log(location);
     const response = await fetch(`${API_URL}/locations`, {
         method: "POST",
         body: JSON.stringify(location),
         headers: {
             'content-type': 'application/json',
-            ...authHeaders()
+            ...(await authHeaders())
         }
     })
     const {locationId}: Locations = await response.json();

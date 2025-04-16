@@ -7,7 +7,7 @@ export default async function EmployeesLocation({store} : {store : string | stri
     const response = await fetch(`${API_URL}/employees/location/${store}`,  {
         method: 'GET',
         headers: {
-            ...authHeaders(),
+            ...(await authHeaders())
         },
         next: { 
             tags: ["dashboard:locations:employees"],    

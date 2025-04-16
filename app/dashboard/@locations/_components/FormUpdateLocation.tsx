@@ -9,7 +9,7 @@ export default async function FormUpdateLocation({store} : {store : string | str
     const updateWithStoreId = updateLocation.bind(null, store);
     const responseManagers = await fetch(`${API_URL}/managers`, {
         headers: {
-            ...authHeaders()
+            ...(await authHeaders())
         },
         next: {
             tags: ["dashboard:managers"],
@@ -18,7 +18,7 @@ export default async function FormUpdateLocation({store} : {store : string | str
     const dataManagers : Manager[] = await responseManagers.json();
     const responseLocation = await fetch(`${API_URL}/locations`, {
         headers: {
-            ...authHeaders()
+            ...(await authHeaders())
         },
         next: {
             tags: ["dashboard:locations"],

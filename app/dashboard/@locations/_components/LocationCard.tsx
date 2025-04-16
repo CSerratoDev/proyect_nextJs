@@ -8,7 +8,7 @@ export default async function LocationCard({store} : {store: string | string[] |
     if(!store) return null;
     let response = await fetch(`${API_URL}/locations/${store}`, {
         headers: {
-            ...authHeaders()
+            ...(await authHeaders())
         },
         next: {
             tags: ["dashboard:locations", `dashboard:locations:${store}`],
