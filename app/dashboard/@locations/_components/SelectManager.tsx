@@ -14,7 +14,7 @@ export default function SelectManager({manager, location, defaultManager} : Sele
         <Select defaultSelectedKeys={defaultManager !== undefined ? [defaultManager] : []} label="Manager" name="manager" disabledKeys={disableKey}>
             {manager.map((manager: Manager) => {
                     return (
-                        <SelectItem key={manager.managerId}>
+                        <SelectItem key={manager.managerId} >
                             {manager.managerFullName}
                         </SelectItem>
                     );
