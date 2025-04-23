@@ -4,8 +4,9 @@ import { Card, CardBody, CardHeader, Divider } from "@heroui/react";
 import { authHeaders } from "helpers/authHeaders";
 
 export default async function EmployeesLocation({store} : {store : string | string[] | undefined }) {
+    if(!store) return "No hay empleados";
     const response = await fetch(`${API_URL}/employees/location/${store}`,  {
-        method: 'GET',
+        method: "GET",
         headers: {
             ...(await authHeaders())
         },
@@ -17,7 +18,7 @@ export default async function EmployeesLocation({store} : {store : string | stri
     return data.map((employee : Employee) => {
         const fullName = employee.employeeName + ' ' + employee.employeeLastName;
         return (
-            <Card key={employee.employeeId} className="mx-10 my-20">
+            <Card className="mx-10 my-20">
                 <CardHeader>
                     <p className="w-full">Nombre:<b>{fullName}</b></p>
                 </CardHeader>    
@@ -26,7 +27,6 @@ export default async function EmployeesLocation({store} : {store : string | stri
                     <p className="w-full"> Email: <b> {employee.employeeEmail}</b></p>
                     <p className="w-full"> Telefono: <b> {employee.employeePhoneNumber}</b></p>    
                 </CardBody>
-            </Card>
-        )
-});
+            </Card>)
+    });
 }

@@ -4,9 +4,13 @@ import Link from "next/link";
 import { authHeaders } from "helpers/authHeaders";
 import { Locations } from "entities";
 
-export default async function LocationCard({store} : {store: string | string[] | undefined}) {
+export default async function LocationCard({
+    store
+} : {
+    store: string | string[] | undefined;
+}) {
     if(!store) return null;
-    let response = await fetch(`${API_URL}/locations/${store}`, {
+    const response = await fetch(`${API_URL}/locations/${store}`, {
         headers: {
             ...(await authHeaders())
         },
@@ -21,12 +25,15 @@ export default async function LocationCard({store} : {store: string | string[] |
                 <b className="w-full"> Tienda:{data.locationName}</b>
             </CardHeader>
             <Divider/>
-            <CardBody> 
+            <CardBody className="flex flex-col w-full items-center"> 
                 <p className="w-full">
-                    Manager:
-                    <Link href={{ pathname : `/dashboard/managers` }}>
+                    Manager:{" "}
+                    <Link href={{ pathname : `/dashboard/managers/${data.manager?.managerId}` }}>
                         <b>{data.manager?.managerFullName}</b>
                     </Link>
+                </p>
+                <p className="w-full">
+                    Dirección: <b>{data.locationAddress}</b>
                 </p>
             </CardBody>
         </Card>
