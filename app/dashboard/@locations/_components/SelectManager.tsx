@@ -1,4 +1,4 @@
-import { Select, SelectItem } from "@heroui/react";
+import { Select, SelectItem, Table } from "@heroui/react";
 import { Locations, Manager } from "entities";
 
 interface SelectManagerProps {
@@ -21,10 +21,10 @@ export default function SelectManager({managers, location, defaultManager} : Sel
                 disableKey
             }
         >
-            {managers.map((mgr: Manager) => (
-                <SelectItem key={mgr.managerId}>
-                    {mgr.managerFullName}
-                </SelectItem>
+            {managers?.map((mgr: Manager) => (
+            <SelectItem key={mgr.managerId}>
+                {mgr.managerFullName}
+            </SelectItem>
             ))}
         </Select>
     );
