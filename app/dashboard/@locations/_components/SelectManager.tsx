@@ -22,9 +22,9 @@ export default function SelectManager({managers, location, defaultManager} : Sel
             }
         >
             {managers?.map((mgr: Manager) => (
-            <SelectItem key={mgr.managerId}>
-                {mgr.managerFullName}
-            </SelectItem>
+                <SelectItem key={mgr.managerId}>
+                    {mgr.managerFullName}
+                </SelectItem>
             ))}
         </Select>
     );

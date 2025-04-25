@@ -1,0 +1,31 @@
+'use client'
+
+import { Select, SelectItem } from "@heroui/react"
+import { Locations } from "entities"
+
+export default function SelectStore({stores, defaultStore}: {stores: Locations[], defaultStore: number}) {
+    const disableStores = stores.map((store: Locations) => {
+    if(store.manager !== undefined) {
+        return String (store.locationId)
+    }
+    }).filter((storeId) => storeId !== undefined)
+    return (
+        <Select 
+            defaultSelectedKeys={
+                defaultStore ? [defaultStore] : undefined 
+            }
+            label="Store"
+            name="store"
+            disabledKeys={
+                disableStores
+            }
+        >
+            {stores.map((store: Locations) => (
+                <SelectItem key={store.locationId}>
+                    {store.locationName}
+                </SelectItem>
+            ))
+        }
+        </Select>
+    )
+}
