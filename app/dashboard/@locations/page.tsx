@@ -14,10 +14,7 @@ const LocationsPage = async ({
     searchParams: { [key: string]: string | string[] | undefined };
   }) => {
     const store = searchParams?.store;
-  
-    const response = await fetch(
-      `${API_URL}/locations`, 
-      {
+    const response = await fetch(`${API_URL}/locations`, {
         headers: {
           ...(await authHeaders()),
         },
@@ -25,7 +22,6 @@ const LocationsPage = async ({
           tags: ["dashboard:locations"],
         },
     });
-  
     let data: Locations[] = await response.json();
     data = [
       {
@@ -61,6 +57,4 @@ const LocationsPage = async ({
       </div>
     );
 };
-  
-
 export default LocationsPage;

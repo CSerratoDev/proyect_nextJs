@@ -14,7 +14,7 @@ export default async function FormUpdateLocation({store} : {store : string | str
         next: {
             tags: ["dashboard:managers"],
         }
-    })
+    });
     const dataManagers : Manager[] = await responseManagers.json();
     const responseLocation = await fetch(`${API_URL}/locations`, {
         headers: {
@@ -23,7 +23,7 @@ export default async function FormUpdateLocation({store} : {store : string | str
         next: {
             tags: ["dashboard:locations"],
         }
-    })
+    });
     const dataLocation : Locations[] = await responseLocation.json();
     let foundLocation = dataLocation.find((location) => location.locationId === +store);
     let foundManager = dataManagers.find((manager) => manager.managerId === foundLocation?.manager?.managerId);

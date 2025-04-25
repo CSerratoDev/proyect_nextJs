@@ -4,11 +4,7 @@ import Link from "next/link";
 import { authHeaders } from "helpers/authHeaders";
 import { Locations } from "entities";
 
-export default async function LocationCard({
-    store
-} : {
-    store: string | string[] | undefined;
-}) {
+export default async function LocationCard({store} : { store: string | string[] | undefined;}) {
     if(!store) return null;
     const response = await fetch(`${API_URL}/locations/${store}`, {
         headers: {
