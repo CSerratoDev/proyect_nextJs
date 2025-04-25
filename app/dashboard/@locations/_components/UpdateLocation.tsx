@@ -10,7 +10,7 @@ import { ReactNode } from "react";
 import { LuPencil } from "react-icons/lu";
   
   export default function UpdateLocation({children, store} : {children : ReactNode , store : string | string[] | undefined}) {
-    if(!store) return <div/>;
+    if(!store) return <div/>
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
   
     return (
