@@ -9,10 +9,10 @@ import UpdateLocation from "./_components/UpdateLocation";
 import FormUpdateLocation from "./_components/FormUpdateLocation";
 
 const LocationsPage = async ({
-    searchParams,
-  }: {
-    searchParams: { [key: string]: string | string[] | undefined };
-  }) => {
+  searchParams,
+}: {
+  searchParams: { store?: string | string[] };
+}) => {
     const response = await fetch(`${API_URL}/locations`, {
         headers: {
           ...(await authHeaders()),
@@ -47,9 +47,7 @@ const LocationsPage = async ({
           <div className="flex flex-col flex-grow-0 gap-10 items-center">
             <DeleteLocationButton store={searchParams.store} />
             <UpdateLocation store={searchParams.store}>
-              <>
                 <FormUpdateLocation store={searchParams.store} />
-              </>
             </UpdateLocation>
           </div>
         </div>

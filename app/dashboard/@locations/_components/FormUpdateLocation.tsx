@@ -34,7 +34,7 @@ export default async function FormUpdateLocation({store} : {store : string | str
             <Input required={true} defaultValue={foundLocation?.locationAddress} label="Dirección" placeholder="Av de la luz" name="locationAdress"/>
             <Input required={true} defaultValue={foundLocation?.locationLatLng[0].toString()} label="Latitud" placeholder="100" name="locationLat"/>
             <Input required={true} defaultValue={foundLocation?.locationName[1].toString()} label="Longitud" placeholder="25" name="locationLng"/>
-            <SelectManager defaultManager={foundManager?.managerId} manager = {dataManagers} location = {dataLocation} />
+            <SelectManager defaultManager={foundManager?.managerId} managers = {dataManagers} location = {dataLocation} />
             <Button type="submit" color="primary">Actualizar</Button>
         </form>
     );

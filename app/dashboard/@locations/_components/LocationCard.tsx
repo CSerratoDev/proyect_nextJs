@@ -6,6 +6,7 @@ import { Locations } from "entities";
 
 export default async function LocationCard({store} : { store: string | string[] | undefined;}) {
     if(!store) return null;
+
     const response = await fetch(`${API_URL}/locations/${store}`, {
         headers: {
             ...(await authHeaders())
@@ -14,7 +15,18 @@ export default async function LocationCard({store} : { store: string | string[] 
             tags: ["dashboard:locations", `dashboard:locations:${store}`],
         }
     });
-    const data: Locations = await response.json();
+    if (!response.ok) {
+        console.error(`Failed to fetch location: ${response.status}`);
+        return null;
+    }
+
+    const text = await response.text();
+    if (!text) {
+        console.warn("Empty response for location");
+        return null;
+    }
+
+    const data: Locations = JSON.parse(text);
     return (
         <Card>
             <CardHeader>
