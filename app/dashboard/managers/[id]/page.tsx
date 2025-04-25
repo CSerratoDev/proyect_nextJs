@@ -1,9 +1,9 @@
 import { Manager } from "entities";
 import { API_URL } from "../../../../constants";
 import { authHeaders } from "helpers/authHeaders";
-import { Card, CardBody, CardHeader, Divider } from "@heroui/react";
 import ManagersCard from "./_components/ManagersCard";
 import DeleteManagerButton from "./_components/DeleteManagerButton";
+import FormUpdateManager from "./_components/FormUpdateManager";
 
 export default async function ManagerPage({
     params,
@@ -26,6 +26,7 @@ export default async function ManagerPage({
                 <ManagersCard mgr={data} />
                 <div className="bg-white shadow-medium rounded-md px-10 py-2">
                     <DeleteManagerButton managerId={data.managerId}/>
+                    <FormUpdateManager manager={data}/>
                 </div>
            </div>
     );
