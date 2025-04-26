@@ -15,10 +15,7 @@ const ProviderPage = async () => {
     const providers : Provider[] = await response.json();
 
     return (
-        <div className="flex flex-grow-0 flex-col items-end w-full px-10">
-            <Button className="w-fit" color="secondary">
-                <LuPlus size="20"/>
-            </Button>
+        <div className="flex flex-grow-0 items-center flex-col items-end w-full px-10">
             <div className="flex flex-wrap w-full py-10 flex-grow-0 gap-10 px-10">
                 {providers.map((provider: Provider) => (
                     <Link href={{pathname: `/dashboard/providers/${provider.providerId}`}} key={provider.providerId}>
@@ -26,6 +23,9 @@ const ProviderPage = async () => {
                     </Link>
                 ))}
             </div>
+            <Button className="w-fit" color="secondary">
+                <LuPlus size="20"/>
+            </Button>
         </div>
     )
 }
