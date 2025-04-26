@@ -5,17 +5,17 @@ import { Locations } from "entities"
 
 export default function SelectStore({stores, defaultStore}: {stores: Locations[], defaultStore: number}) {
     const disableStores = stores.map((store: Locations) => {
-    if(store.manager !== undefined) {
-        return String (store.locationId)
-    }
+        if(store.manager !== undefined && store.locationId !== defaultStore) {
+            return String (store.locationId)
+        }
     }).filter((storeId) => storeId !== undefined)
     return (
         <Select 
             defaultSelectedKeys={
                 defaultStore ? [defaultStore] : undefined 
             }
-            label="Store"
-            name="store"
+            label="Tienda"
+            name="location"
             disabledKeys={
                 disableStores
             }

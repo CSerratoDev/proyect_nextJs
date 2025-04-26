@@ -8,11 +8,7 @@ import { authHeaders } from "helpers/authHeaders";
 import UpdateLocation from "./_components/UpdateLocation";
 import FormUpdateLocation from "./_components/FormUpdateLocation";
 
-const LocationsPage = async ({
-  searchParams,
-}: {
-  searchParams: { store?: string | string[] };
-}) => {
+const LocationsPage = async ({searchParams}: { searchParams: { store?: string | string[] }}) => {
     const response = await fetch(`${API_URL}/locations`, {
         headers: {
           ...(await authHeaders()),

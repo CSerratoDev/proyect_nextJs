@@ -6,13 +6,7 @@ import DeleteManagerButton from "./_components/DeleteManagerButton";
 import FormUpdateManager from "./_components/FormUpdateManager";
 import UpdateManager from "./_components/UpdateManager";
 
-export default async function ManagerPage({
-    params,
-}:{
-    params: {
-        id: string;
-    };
-}) {
+export default async function ManagerPage({params}:{ params: { id: string }}) {
     const response = await fetch(`${API_URL}/managers/${params.id}`, {
         headers : {
             ...(await authHeaders()),
@@ -22,6 +16,7 @@ export default async function ManagerPage({
         }
     });
     const data : Manager = await response.json();
+    
     return (
            <div className="flex flex-col gap-10 flex-grow-0 items-center justify-center">
                 <ManagersCard mgr={data} />
