@@ -17,7 +17,7 @@ export default async function FormUpdateManager({manager}: {manager: Manager}) {
    
     return (
         <form action={updateMgrWithId} className="rounded-md flex flex-col flex-grow-0 gap-2">
-            <h1 className="text-lg flex justify-center"> Actualizar Manager </h1>
+            <h1 className="text-2xl text-[#252525] flex justify-center"> Actualizar Manager </h1>
             <Input
                 required={true}
                 isRequired

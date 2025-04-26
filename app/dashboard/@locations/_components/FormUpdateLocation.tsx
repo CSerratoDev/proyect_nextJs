@@ -16,6 +16,7 @@ export default async function FormUpdateLocation({store} : {store : string | str
         }
     });
     const dataManagers : Manager[] = await responseManagers.json();
+
     const responseLocation = await fetch(`${API_URL}/locations`, {
         headers: {
             ...(await authHeaders())
@@ -30,12 +31,42 @@ export default async function FormUpdateLocation({store} : {store : string | str
     return (
         <form action={updateWithStoreId} className="bg-orange-400 py-2 px-4 flex flex-col gap-3 w-full rounded-lg">
             <h1 className="text-2xl text-white text-center">Crear Tienda</h1>
-            <Input required={true} defaultValue={foundLocation?.locationName} label="Nombre" placeholder="Oxxo Juriquilla" name="locationName"/>
-            <Input required={true} defaultValue={foundLocation?.locationAddress} label="Dirección" placeholder="Av de la luz" name="locationAdress"/>
-            <Input required={true} defaultValue={foundLocation?.locationLatLng[0].toString()} label="Latitud" placeholder="100" name="locationLat"/>
-            <Input required={true} defaultValue={foundLocation?.locationName[1].toString()} label="Longitud" placeholder="25" name="locationLng"/>
-            <SelectManager defaultManager={foundManager?.managerId} managers = {dataManagers} location = {dataLocation} />
-            <Button type="submit" color="primary">Actualizar</Button>
+            <Input 
+                required={true} 
+                defaultValue={foundLocation?.locationName} 
+                label="Nombre" 
+                placeholder="Oxxo Juriquilla" 
+                name="locationName"
+            />
+            <Input 
+                required={true} 
+                defaultValue={foundLocation?.locationAddress} 
+                label="Dirección" 
+                placeholder="Av de la luz" 
+                name="locationAdress"
+            />
+            <Input 
+                required={true} 
+                defaultValue={foundLocation?.locationLatLng[0].toString()} 
+                label="Latitud" 
+                placeholder="100" 
+                name="locationLat"
+            />
+            <Input 
+                required={true} 
+                defaultValue={foundLocation?.locationName[1].toString()} 
+                label="Longitud" 
+                placeholder="25" 
+                name="locationLng"
+            />
+            <SelectManager 
+                defaultManager={foundManager?.managerId} 
+                managers = {dataManagers} 
+                location = {dataLocation} 
+            />
+            <Button type="submit" color="success">
+                Actualizar
+            </Button>
         </form>
-    );
+    )
 }

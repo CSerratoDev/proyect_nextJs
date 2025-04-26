@@ -9,7 +9,7 @@ export default function UpdateManager({children} : {children : ReactNode}) {
   return (
     <div>
       <Button onPress={onOpen} color="primary"><LuPencil size="20"/></Button>
-      <Modal className="bg-orange-400" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal className="bg-zinc-50" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent className="w-full">
           {() => (
             <>

@@ -29,25 +29,25 @@ const LocationsPage = async ({searchParams}: { searchParams: { store?: string | 
     ];
   
     return (
-      <div className="w-7/12">
-        <div className="w-full flex flex-col items-center h-[90vh]">
-          <div className="w-1/2 my-10">
-            <SelectLocation locations={data} store={searchParams.store} />
-          </div>
-          <div className="w-8/12">
-            <LocationCard store={searchParams.store} />
-          </div>
-          <div className="w-6/12">
-            <FormNewLocation store={searchParams.store} />
-          </div>
-          <div className="flex flex-col flex-grow-0 gap-10 items-center">
-            <DeleteLocationButton store={searchParams.store} />
-            <UpdateLocation store={searchParams.store}>
-                <FormUpdateLocation store={searchParams.store} />
-            </UpdateLocation>
-          </div>
-        </div>
-      </div>
+      //<div className="w-7/12">
+      //  <div className="w-full flex flex-col items-center h-[90vh]">
+      //    <div className="w-1/2 my-10">
+      //      <SelectLocation locations={data} store={searchParams.store} />
+      //    </div>
+      //  <div className="w-6/12">
+      //      <FormNewLocation store={searchParams.store} />
+      //</div>
+            <div className="w-8/12 flex flex-col gap-10 flex-grow-0 items-center justify-center">
+              <LocationCard store={searchParams.store} />
+              <div className="flex flex-row flex-grow-0 bg-white shadow-medium rounded-md px-10 py-2 gap-2">
+                <UpdateLocation store={searchParams.store}>
+                  <FormUpdateLocation store={searchParams.store} />
+                </UpdateLocation>
+                <DeleteLocationButton store={searchParams.store} />
+              </div>
+            </div>
+      //  </div>
+      //</div>
     );
 };
 export default LocationsPage;

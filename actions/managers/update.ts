@@ -17,8 +17,8 @@ export default async function updateManager(managerId : string, formData: FormDa
         method: "PATCH",
         body: JSON.stringify(manager),
         headers: {
-            ...(await authHeaders()),
-            "Content-Type": "application/json",
+            'content-type': 'application/json',
+            ...(await authHeaders())
         },
     });
     if (response.status === 200){

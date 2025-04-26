@@ -28,15 +28,18 @@ export default async function LocationCard({store} : { store: string | string[] 
 
     const data: Locations = JSON.parse(text);
     return (
-        <Card>
+        <Card className="mx-20 py-2 bg-cyan-50 text-[#252525] text-center">
             <CardHeader>
-                <b className="w-full"> Tienda:{data.locationName}</b>
+                <b className="w-full">{data.locationName}</b>
             </CardHeader>
             <Divider/>
-            <CardBody className="flex flex-col w-full items-center"> 
+            <CardBody className="flex flex-row flex-grow-0 items-center gap-5 justify-center"> 
                 <p className="w-full">
                     Manager:{" "}
-                    <Link href={{ pathname : `/dashboard/managers/${data.manager?.managerId}` }}>
+                    <Link 
+                        href={{ 
+                            pathname : `/dashboard/managers/${data.manager?.managerId}` 
+                            }}>
                         <b className="underline">{data.manager?.managerFullName}</b>
                     </Link>
                 </p>
