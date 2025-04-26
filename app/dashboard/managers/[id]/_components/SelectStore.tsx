@@ -12,7 +12,7 @@ export default function SelectStore({stores, defaultStore}: {stores: Locations[]
     return (
         <Select 
             defaultSelectedKeys={
-                defaultStore ? [defaultStore] : undefined 
+                defaultStore ? [String(defaultStore)] : undefined 
             }
             label="Tienda"
             name="location"
@@ -20,12 +20,13 @@ export default function SelectStore({stores, defaultStore}: {stores: Locations[]
                 disableStores
             }
         >
-            {stores.map((store: Locations) => (
-                <SelectItem key={store.locationId}>
-                    {store.locationName}
-                </SelectItem>
-            ))
-        }
+            {
+                stores.map((store: Locations) => (
+                    <SelectItem key={String(store.locationId)}>
+                        {store.locationName}
+                    </SelectItem>
+                ))
+            }
         </Select>
     )
 }

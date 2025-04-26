@@ -19,6 +19,9 @@ export default function ManagersCard({mgr} : {mgr: Manager}) {
                 <p className="w-full">
                     Teléfono: <b>{mgr.managerPhoneNumber}</b>
                 </p>
+                <p className="w-full">
+                    Salario: <b>${mgr.managerSalary}</b>
+                </p>
                 <p className={mgr.location ? "" : "hidden"}>
                     Tienda: {" "} 
                         <Link 
