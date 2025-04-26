@@ -16,8 +16,8 @@ export default async function FormUpdateManager({manager}: {manager: Manager}) {
     const stores = await responseStores.json()
    
     return (
-        <form action={updateMgrWithId} className="rounded-md flex flex-col flex-grow-0 gap-2">
-            <h1 className="text-2xl text-[#252525] flex justify-center"> Actualizar Manager </h1>
+        <form action={updateMgrWithId} className="rounded-md flex flex-col flex-grow-0 gap-3">
+            <h1 className="text-2xl text-[#252525] flex justify-center p-3"><b>Actualizar Manager</b></h1>
             <Input
                 required={true}
                 isRequired
@@ -54,9 +54,11 @@ export default async function FormUpdateManager({manager}: {manager: Manager}) {
                 stores={stores} 
                 defaultStore={manager?.location?.locationId}
             />
-            <Button color="success" type="submit">
+            <div className="flex justify-end ">
+            <Button className="w-1/3" variant="shadow" color="success" type="submit">
                 Actualizar
             </Button>
+            </div>
         </form>
     )
 }

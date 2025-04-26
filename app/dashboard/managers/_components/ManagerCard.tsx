@@ -18,14 +18,14 @@ export default async function ManagerCard () {
     return data?.map((manager : Manager) => {
         return (
             <Link href={{ pathname : `/dashboard/managers/${manager.managerId}`}}>
-                <Card className="mx-10 my-10 hover:scale-105 hover:bg-cyan-50 hover:text-[#252525]">
+                <Card className="mx-10 my-10 hover:scale-105 bg-white text-[#252525] hover:bg-[#252525] hover:text-white">
                     <CardHeader>
-                        <p className="w-full">Nombre:<b>{manager.managerFullName}</b></p>
+                        <p className="w-full">Nombre: <b>{manager.managerFullName}</b></p>
                     </CardHeader>    
-                    <Divider/>
+                    <Divider className="bg-black"/>
                     <CardBody>
-                        <p className="w-full"> Email: <b> {manager.managerEmail}</b></p>
-                        <p className="w-full"> Telefono: <b> {manager.managerPhoneNumber}</b></p>    
+                        <p className="w-full"> Email: <b>{manager.managerEmail}</b></p>
+                        <p className="w-full"> Telefono: <b>{manager.managerPhoneNumber}</b></p>    
                     </CardBody>
                 </Card>
             </Link>

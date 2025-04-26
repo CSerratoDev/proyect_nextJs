@@ -5,25 +5,25 @@ import NavItem from "./NavItem";
 
 export default function Sidebar(){
     return(
-        <nav className="w-1/12 h-[90vh] bg-[#252525] flex flex-col items-center justify-center gap-10">
+        <nav className="w-1/12 h-[90vh] w-20 bg-white flex flex-col items-center justify-center gap-10">
             <NavItem icon={
-                <GoHomeFill className="text-4xl text-white"/>}
+                <GoHomeFill className="text-4xl text-black"/>}
                 path="/dashboard"
             />
             <NavItem icon= {
-                <LuTruck className="text-4xl text-white"/>}
+                <LuTruck className="text-4xl text-black"/>}
                 path="/dashboard/providers"
             />
             <NavItem icon={  
-                <CiCoffeeCup className="text-4xl text-white"/>}
+                <CiCoffeeCup className="text-4xl text-black"/>}
                 path="/dashboard/products"
             />
             <NavItem icon={
-                <LuUser className="text-4xl text-white"/>}
+                <LuUser className="text-4xl text-black"/>}
                 path="/dashboard/managers"
             />
             <NavItem icon={
-                <LuUsers className="text-4xl text-white"/>}
+                <LuUsers className="text-4xl text-black"/>}
                 path="/dashboard/employees"
             />
         </nav>

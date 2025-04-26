@@ -1,5 +1,5 @@
 const EmployeesPage = () => {
-    return null;
+    return "Employees Page";
 }
 
 export default EmployeesPage;

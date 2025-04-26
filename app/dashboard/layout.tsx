@@ -11,7 +11,7 @@ export default function LayoutDashboard({
 }>) {
     const path = usePathname();
     return (
-        <div className="bg-orange-50 text-black">
+        <div className="bg-gray-200 text-black">
             <Header/>
             <div className="flex flex-row items-center">
                 <Sidebar/>

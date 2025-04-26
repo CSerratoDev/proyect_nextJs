@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ManagersCard({mgr} : {mgr: Manager}) {
     return (
-        <Card className="mx-20 py-2 bg-cyan-50 text-[#252525] text-center">
+        <Card className="mx-20 py-2 bg-white text-[#252525] text-center">
             <CardHeader>
                 <p className="w-full">
                     <b className="text-2xl">{mgr.managerFullName}</b>

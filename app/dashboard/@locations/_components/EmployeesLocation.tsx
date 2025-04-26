@@ -18,11 +18,11 @@ export default async function EmployeesLocation({store} : {store : string | stri
     return data?.map((employee : Employee) => {
         const fullName = employee.employeeName + ' ' + employee.employeeLastName;
         return (
-            <Card key={employee.employeeId} className="mx-10 my-20">
+            <Card key={employee.employeeId} className="mx-10 my-10 hover:scale-105 bg-white text-[#252525] hover:bg-[#252525] hover:text-white">
                 <CardHeader>
-                    <p className="w-full">Nombre:<b>{fullName}</b></p>
+                    <p className="w-full">Nombre: <b>{fullName}</b></p>
                 </CardHeader>    
-                <Divider/>
+                <Divider className="bg-black"/>
                 <CardBody>
                     <p className="w-full"> Email: <b> {employee.employeeEmail}</b></p>
                     <p className="w-full"> Telefono: <b> {employee.employeePhoneNumber}</b></p>    

@@ -1,4 +1,4 @@
 const ProviderPage = () => {
-    return null;
+    return "Provider Page";
 }
 export default ProviderPage;
