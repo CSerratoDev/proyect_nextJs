@@ -5,7 +5,7 @@ import { authHeaders } from "helpers/authHeaders";
 import Link from "next/link";
 
 export default async function ManagerCard () {
-    const response = await fetch(`${API_URL}/managers`,  {
+    const response = await fetch(`${API_URL}/managers`, {
         method: "GET",
         headers: {
             ...(await authHeaders())
@@ -17,11 +17,9 @@ export default async function ManagerCard () {
     const data: Manager[] = await response.json();
     return data?.map((manager : Manager) => {
         return (
-            <Link href={{ pathname : `/dashboard/managers/${manager.managerId}`}}>
+            <Link href={{pathname:`/dashboard/managers/${manager.managerId}`}}>
                 <Card className="mx-10 my-10 hover:scale-105 bg-white text-[#252525] hover:bg-[#252525] hover:text-white">
-                    <CardHeader>
-                        <p className="w-full">Nombre: <b>{manager.managerFullName}</b></p>
-                    </CardHeader>    
+                    <CardHeader><p className="w-full">Nombre: <b>{manager.managerFullName}</b></p></CardHeader>    
                     <Divider className="bg-black"/>
                     <CardBody>
                         <p className="w-full"> Email: <b>{manager.managerEmail}</b></p>

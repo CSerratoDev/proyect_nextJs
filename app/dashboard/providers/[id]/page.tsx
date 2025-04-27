@@ -21,18 +21,11 @@ export default async function ProviderPage({params}: {params: {id: string}}) {
                 <ProviderCard provider={provider} />
                 <FormUpdateProvider provider={provider}/>
             </div>
-            {
-                provider.products?.map((producto: Products) => (
-                    <Link 
-                        href={{ pathname: `/dashboard/products/${producto.productId}`}}
-                        key={producto.productId}
-                    >
-                    <ProductCard key={producto.productId} 
-                        producto={producto} 
-                    />
-                    </Link>
-                ))
-            }
+            {provider.products?.map((producto: Products) => (
+                <Link href={{ pathname: `/dashboard/products/${producto.productId}`}} key={producto.productId}>
+                    <ProductCard key={producto.productId} producto={producto}/>
+                </Link>
+            ))}
         </div>
     )
 }

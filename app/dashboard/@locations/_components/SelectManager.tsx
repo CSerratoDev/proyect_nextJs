@@ -11,16 +11,10 @@ export default function SelectManager({managers, location, defaultManager} : Sel
     ?.filter(loc => loc.manager?.managerId && loc.manager.managerId !== defaultManager)
     .map(loc => loc.manager!.managerId);
     return (
-        <Select 
-            defaultSelectedKeys={
-                defaultManager ? [defaultManager] : undefined
-            } 
+        <Select defaultSelectedKeys={defaultManager ? [defaultManager] : undefined}  
             label="Manager" 
             name="manager" 
-            disabledKeys={
-                disableKey
-            }
-        >
+            disabledKeys={disableKey}>
             {managers?.map((mgr: Manager) => (
                 <SelectItem key={mgr.managerId}>
                     {mgr.managerFullName}

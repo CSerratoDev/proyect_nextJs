@@ -2,13 +2,10 @@ import { API_URL} from "../../../constants";
 import { Locations } from "entities";
 import SelectLocation from "./_components/SelectLocation";
 import LocationCard from "./_components/LocationCard";
-import FormNewLocation from "./_components/FormNewLocation";
 import DeleteLocationButton from "./_components/DeleteLocationButton";
 import { authHeaders } from "helpers/authHeaders";
 import UpdateLocation from "./_components/UpdateLocation";
 import FormUpdateLocation from "./_components/FormUpdateLocation";
-import { Button } from "@heroui/button";
-import { LuPlus } from "react-icons/lu";
 
 const LocationsPage = async ({searchParams}: { searchParams: { store?: string | string[] }}) => {
     const response = await fetch(`${API_URL}/locations`, {
@@ -29,7 +26,6 @@ const LocationsPage = async ({searchParams}: { searchParams: { store?: string | 
       },
       ...data,
     ];
-  
     return (
       //<div className="w-7/12">
       //  <div className="w-full flex flex-col items-center h-[90vh]">
@@ -39,6 +35,8 @@ const LocationsPage = async ({searchParams}: { searchParams: { store?: string | 
       //  <div className="w-6/12">
       //      <FormNewLocation store={searchParams.store} />
       //</div>
+          <div className="w-full flex flex-col items-center h-[90vh] gap-10">
+            <SelectLocation locations={data} store={searchParams.store} />
             <div className="w-8/12 flex flex-col gap-10 flex-grow-0 items-center justify-center">
               <LocationCard store={searchParams.store} />
               <div className="flex flex-row flex-grow-0 bg-white shadow-medium rounded-md px-10 py-2 gap-2">
@@ -47,12 +45,8 @@ const LocationsPage = async ({searchParams}: { searchParams: { store?: string | 
                 </UpdateLocation>
                 <DeleteLocationButton store={searchParams.store} />
               </div>
-              <Button className="w-fit" color="secondary">
-                <LuPlus size="20"/>
-              </Button>
             </div>
-      //  </div>
-      //</div>
+          </div>
     );
 };
 export default LocationsPage;

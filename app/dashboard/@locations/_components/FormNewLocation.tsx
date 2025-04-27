@@ -27,41 +27,12 @@ export default async function FormNewLocation({store} : {store : string | string
     return (
         <form action={createLocation} className="bg-[#252525] py-2 px-4 flex flex-col gap-3 w-full rounded-lg">
             <h1 className="flex text-2xl text-white justify-center">Crear Tienda</h1>
-            <Input 
-                required={true}
-                isRequired
-                label="Nombre" 
-                placeholder="Oxxo Juriquilla" 
-                name="locationName"
-            />
-            <Input 
-                required={true}
-                isRequired
-                label="Dirección" 
-                placeholder="Av de la luz" 
-                name="locationAdress"
-            />
-            <Input 
-                required={true}
-                isRequired
-                label="Latitud" 
-                placeholder="100" 
-                name="locationLat"
-            />
-            <Input 
-                required={true}
-                isRequired 
-                label="Longitud" 
-                placeholder="25" 
-                name="locationLng"
-            />
-            <SelectManager 
-                managers = {dataManagers} 
-                location = {dataLocation} 
-            />
-            <Button color="success" type="submit">
-                Actualizar
-            </Button>
+            <Input required={true} isRequired label="Nombre" placeholder="Oxxo Juriquilla" name="locationName"/>
+            <Input required={true} isRequired label="Dirección" placeholder="Av de la luz" name="locationAdress"/>
+            <Input required={true} isRequired label="Latitud" placeholder="100" name="locationLat"/>
+            <Input required={true} isRequired label="Longitud" placeholder="25" name="locationLng"/>
+            <SelectManager managers = {dataManagers} location = {dataLocation}/>
+            <Button color="success" type="submit">Actualizar</Button>
         </form>
     );
 }

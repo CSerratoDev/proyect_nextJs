@@ -33,6 +33,6 @@ export async function updateLocation(store: string, formData: FormData) {
     if (response.status === 200) {
         revalidateTag("dashbo0rd:locations")
         revalidateTag(`dashbo0rd:locations:${store}`);
-        redirect(`/dashboard?store=${locationId}`)
+        redirect(`/dashboard`)
     }
 }

@@ -16,7 +16,6 @@ export default async function FormUpdateLocation({store} : {store : string | str
         }
     });
     const dataManagers : Manager[] = await responseManagers.json();
-
     const responseLocation = await fetch(`${API_URL}/locations`, {
         headers: {
             ...(await authHeaders())
@@ -64,9 +63,7 @@ export default async function FormUpdateLocation({store} : {store : string | str
                 managers = {dataManagers} 
                 location = {dataLocation} 
             />
-            <Button type="submit" color="success">
-                Actualizar
-            </Button>
+            <Button type="submit" color="success">Actualizar</Button>
         </form>
     )
 }

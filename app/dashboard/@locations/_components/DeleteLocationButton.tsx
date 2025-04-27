@@ -6,9 +6,7 @@ export default function DeleteLocationButton ({store} : {store: string | string[
     if(!store) return null;
     return (
         <form action={DeleteLocation}>
-            <Button type="submit" color="danger" name="deleteValue" value={store}>
-                <LuTrash size="20"/>                    
-            </Button>
+            <Button type="submit" color="danger" name="deleteValue" value={store}><LuTrash size="20"/></Button>
         </form>
     )
 }
