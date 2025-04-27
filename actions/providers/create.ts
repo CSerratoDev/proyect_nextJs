@@ -13,7 +13,7 @@ export default async function createProvider(formData: FormData) {
         method: "POST",
         body: JSON.stringify(provider),
         headers: {
-            ...(await authHeaders() || {}),
+            ...(await authHeaders()),
             "content-type": "application/json",
         }
     })

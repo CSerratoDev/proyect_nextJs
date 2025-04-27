@@ -25,7 +25,8 @@ export async function createLocation(formData: FormData) {
         method: "POST",
         body: JSON.stringify(location),
         headers: {
-            ...(await authHeaders())
+            ...(await authHeaders()),
+            "content-type": "application/json",
         }
     })
     const {locationId}: Locations = await response.json();
