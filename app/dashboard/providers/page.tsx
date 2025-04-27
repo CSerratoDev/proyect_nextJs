@@ -23,8 +23,11 @@ const ProviderPage = async () => {
         <div className="flex flex-grow-0 items-center flex-col items-end w-full px-10">
             <div className="flex flex-wrap w-full py-10 flex-grow-0 gap-10 px-10">
                 {providers.map((provider: Provider) => (
-                    <Link href={{pathname: `/dashboard/providers/${provider.providerId}`}} key={provider.providerId}>
-                    <ProviderCard provider={provider} key={provider.providerId} />
+                    <Link 
+                        href={{pathname: `/dashboard/providers/${provider.providerId}`}} 
+                        key={provider.providerId}
+                    >
+                        <ProviderCard provider={provider} key={provider.providerId} />
                     </Link>
                 ))}
             </div>
