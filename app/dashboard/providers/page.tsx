@@ -5,6 +5,8 @@ import ProviderCard from "./_components/ProviderCard";
 import Link from "next/link";
 import { Button } from "@heroui/button";
 import { LuPlus } from "react-icons/lu";
+import CreateProvider from "./_components/CreateProvider";
+import FormCreateProvider from "./_components/FormCreateProvider";
 
 const ProviderPage = async () => {
     const response = await fetch(`${API_URL}/providers`, {
@@ -23,9 +25,9 @@ const ProviderPage = async () => {
                     </Link>
                 ))}
             </div>
-            <Button className="w-fit" color="secondary">
-                <LuPlus size="20"/>
-            </Button>
+            <CreateProvider>
+                <FormCreateProvider/>
+            </CreateProvider>
         </div>
     )
 }

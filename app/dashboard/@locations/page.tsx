@@ -7,6 +7,8 @@ import DeleteLocationButton from "./_components/DeleteLocationButton";
 import { authHeaders } from "helpers/authHeaders";
 import UpdateLocation from "./_components/UpdateLocation";
 import FormUpdateLocation from "./_components/FormUpdateLocation";
+import { Button } from "@heroui/button";
+import { LuPlus } from "react-icons/lu";
 
 const LocationsPage = async ({searchParams}: { searchParams: { store?: string | string[] }}) => {
     const response = await fetch(`${API_URL}/locations`, {
@@ -45,6 +47,9 @@ const LocationsPage = async ({searchParams}: { searchParams: { store?: string | 
                 </UpdateLocation>
                 <DeleteLocationButton store={searchParams.store} />
               </div>
+              <Button className="w-fit" color="secondary">
+                <LuPlus size="20"/>
+              </Button>
             </div>
       //  </div>
       //</div>
