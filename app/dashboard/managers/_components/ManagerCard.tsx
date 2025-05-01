@@ -15,18 +15,23 @@ export default async function ManagerCard () {
         },
     });
     const data: Manager[] = await response.json();
-    return data?.map((manager : Manager) => {
-        return (
-            <Link href={{pathname:`/dashboard/managers/${manager.managerId}`}}>
-                <Card className="mx-10 my-10 hover:scale-105 bg-white text-[#252525] hover:bg-[#252525] hover:text-white">
-                    <CardHeader><p className="w-full">Nombre: <b>{manager.managerFullName}</b></p></CardHeader>    
-                    <Divider className="bg-black"/>
-                    <CardBody>
-                        <p className="w-full"> Email: <b>{manager.managerEmail}</b></p>
-                        <p className="w-full"> Telefono: <b>{manager.managerPhoneNumber}</b></p>    
-                    </CardBody>
-                </Card>
-            </Link>
-        );
-    });
+    return  (
+        <div>
+            {data.map((mgr) => {
+                return (
+                    <Link key={mgr.managerId} href={{pathname:`/dashboard/managers/${mgr.managerId}`}}>
+                        <Card className="mx-10 my-10 hover:scale-105 bg-white text-[#252525] hover:bg-[#252525] hover:text-white">
+                            <CardHeader><p className="w-full">Nombre: <b>{mgr.managerFullName}</b></p></CardHeader>    
+                            <Divider className="bg-black"/>
+                            <CardBody>
+                                <p className="w-full"> Email: <b>{mgr.managerEmail}</b></p>
+                                <p className="w-full"> Telefono: <b>{mgr.managerPhoneNumber}</b></p>    
+                            </CardBody>
+                        </Card>
+                    </Link>
+                )
+            })}
+                
+        </div>
+    );
 }

@@ -22,9 +22,7 @@ const ProductsPage = async () => {
                         <ProductCard producto={producto}/>
                     </Link>
                 )
-            })
-
-            }
+            })}
         </div>
     )
 }

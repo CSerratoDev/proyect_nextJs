@@ -6,9 +6,10 @@ export default function Header (){
             <Image
                 src="/store.svg" 
                 width={40} 
-                height={0} 
+                height={40} 
                 alt="logo"
                 draggable={false}
+                loading="lazy"
             />
         </div>
     )
