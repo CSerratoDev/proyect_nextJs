@@ -1,3 +1,4 @@
+"use client"
 import { Card, CardBody, CardHeader, Divider } from "@heroui/react";
 import { Products } from "entities";
 

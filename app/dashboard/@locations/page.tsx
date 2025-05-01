@@ -7,7 +7,9 @@ import { authHeaders } from "helpers/authHeaders";
 import UpdateLocation from "./_components/UpdateLocation";
 import FormUpdateLocation from "./_components/FormUpdateLocation";
 
-const LocationsPage = async ({searchParams}: { searchParams: { store?: string | string[] }}) => {
+const LocationsPage = async (props : { searchParams: Promise <{ store?: string | string[]}>}) => {
+    const {store} = await props.searchParams;
+  
     const response = await fetch(`${API_URL}/locations`, {
         headers: {
           ...(await authHeaders()),
@@ -29,21 +31,20 @@ const LocationsPage = async ({searchParams}: { searchParams: { store?: string | 
     return (
       //<div className="w-7/12">
       //  <div className="w-full flex flex-col items-center h-[90vh]">
-      //    <div className="w-1/2 my-10">
-      //      <SelectLocation locations={data} store={searchParams.store} />
-      //    </div>
       //  <div className="w-6/12">
       //      <FormNewLocation store={searchParams.store} />
       //</div>
           <div className="w-full flex flex-col items-center h-[90vh] gap-10">
-            <SelectLocation locations={data} store={searchParams.store} />
+            <div className="w-1/2 my-10">
+              <SelectLocation locations={data} store={store} /> 
+            </div>
             <div className="w-8/12 flex flex-col gap-10 flex-grow-0 items-center justify-center">
-              <LocationCard store={searchParams.store} />
+              <LocationCard store={store} />
               <div className="flex flex-row flex-grow-0 bg-white shadow-medium rounded-md px-10 py-2 gap-2">
-                <UpdateLocation store={searchParams.store}>
-                  <FormUpdateLocation store={searchParams.store} />
+                <UpdateLocation store={store}>
+                  <FormUpdateLocation store={store} />
                 </UpdateLocation>
-                <DeleteLocationButton store={searchParams.store} />
+                <DeleteLocationButton store={store} />
               </div>
             </div>
           </div>

@@ -1,18 +1,20 @@
 import { API_URL } from "../../../../constants"
 import { authHeaders } from "helpers/authHeaders"
-import ProviderCard from "../_components/ProviderCard"
 import { Products, Provider } from "entities"
 import Link from "next/link"
 import ProductCard from "./_components/ProductCard"
+import ProviderCard from "../_components/ProviderCard"
 import FormUpdateProvider from "../_components/FormUpdateProvider"
 
-export default async function ProviderPage({params}: {params: {id: string}}) {
-    const provider : Provider = await (await fetch(`${API_URL}/providers/${params.id}`, {
+export default async function ProviderPage(props: { params: Promise<{id: string}> }) {
+    const {id} = await props.params;
+
+    const provider : Provider = await (await fetch(`${API_URL}/providers/${id}`, {
         headers: {
             ...(await authHeaders())
         },
         next: {
-            tags: [`dashboard:providers: ${params.id}`]
+            tags: [`dashboard:providers:${id}`]
         }
     })).json()
     return (
@@ -28,4 +30,4 @@ export default async function ProviderPage({params}: {params: {id: string}}) {
             ))}
         </div>
     )
-}
+} 

@@ -2,6 +2,7 @@ import { Products } from "entities";
 import { API_URL } from "../../../constants";
 import { authHeaders } from "helpers/authHeaders";
 import ProductCard from "./_components/ProductCard";
+import Link from "next/link";
 
 const ProductsPage = async () => {
     const response = await fetch(`${API_URL}/products`, {
@@ -17,7 +18,9 @@ const ProductsPage = async () => {
         <div>
             {products.map((producto) => {
                 return (
-                    <ProductCard producto={producto}/>
+                    <Link key={producto.productId} href={{ pathname : `/dashboard/products/${producto.productId}`}} className="hover:scale-110">
+                        <ProductCard producto={producto}/>
+                    </Link>
                 )
             })
 

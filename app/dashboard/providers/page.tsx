@@ -3,10 +3,8 @@ import { API_URL } from "../../../constants";
 import { authHeaders } from "helpers/authHeaders";
 import ProviderCard from "./_components/ProviderCard";
 import Link from "next/link";
-import { Button } from "@heroui/button";
-import { LuPlus } from "react-icons/lu";
-import CreateProvider from "./_components/CreateProvider";
 import FormCreateProvider from "./_components/FormCreateProvider";
+import CreateProviderButton from "./_components/CreateProviderButton";
 
 const ProviderPage = async () => {
     const response = await fetch(`${API_URL}/providers`, {
@@ -31,9 +29,9 @@ const ProviderPage = async () => {
                     </Link>
                 ))}
             </div>
-            <CreateProvider>
+            <CreateProviderButton>
                 <FormCreateProvider/>
-            </CreateProvider>
+            </CreateProviderButton>
         </div>
     )
 }
