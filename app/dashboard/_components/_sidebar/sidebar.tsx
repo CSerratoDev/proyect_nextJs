@@ -6,10 +6,7 @@ import NavItem from "./NavItem";
 export default function Sidebar(){
     return(
         <nav className="w-1/12 h-[90vh] w-20 bg-white flex flex-col items-center justify-center gap-10">
-            <NavItem icon={
-                <GoHomeFill className="text-4xl text-black"/>}
-                path="/dashboard"
-            />
+            <NavItem icon={<GoHomeFill className="text-4xl text-black"/>}path="/dashboard"/>
             <NavItem icon= {
                 <LuTruck className="text-4xl text-black"/>}
                 path="/dashboard/providers"

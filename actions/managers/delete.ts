@@ -9,6 +9,7 @@ export default async function deleteManager(managerId: string){
     const response = await fetch (`${API_URL}/managers/${managerId}`, {
         method: "DELETE",
         headers: {
+            'Content-Type': 'application/json',
             ...(await authHeaders())
         }
     })

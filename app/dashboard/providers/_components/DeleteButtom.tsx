@@ -1,4 +1,3 @@
-'use client'
 import { Button } from "@heroui/button";
 import deleteProvider from "actions/providers/delete";
 

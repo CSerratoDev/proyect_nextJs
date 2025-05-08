@@ -3,11 +3,10 @@ import deleteManager from "actions/managers/delete";
 import { LuTrash } from "react-icons/lu";
 
 export default function DeleteManagerButton({managerId} : {managerId: string}) { 
-    const deleteByManagerId = deleteManager.bind(null, managerId);
+    const deleteManagerById = deleteManager.bind(null, managerId);
     return (
-        <form action={deleteByManagerId}>
+        <form action={deleteManagerById}>
             <Button type="submit" color="danger"><LuTrash size="20"/></Button>
         </form>
   );
-
 }
