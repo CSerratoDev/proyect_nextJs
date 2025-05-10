@@ -13,8 +13,8 @@ const ProductsPage = async () => {
         }
     });
     const products : Products[] = await response.json();
-    return (
-        <div>
+    return(
+        <div className="w-full flex justify-center p-3">
             <FilterCards products={products}/>
         </div>
     )

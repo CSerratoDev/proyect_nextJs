@@ -1,35 +1,25 @@
 'use client'
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
-import { Products } from "entities";
 import { Input } from "@heroui/react";
+import { Products } from "entities";
+import { useState } from "react";
+import ProductCard from "./ProductCard";
 
-export default function FilterCards ({products}: {products: Products[]}) {
-    const [filtered, setFiltered] = useState<string>("");
-    const [productsList, setProductsList] = useState<Products[]>(products);
-    useEffect(() => {
-        const filterProducts = products.filter((product) => {
-            if(product.productName.toLowerCase().includes(filtered.toLowerCase())) {
-                return true;
-            } else return false;
-        })
-        setProductsList(filterProducts);
-    }, [filtered]); 
+export default function FilterCards({ products }: { products: Products[] }) {
+    const [filter, setFilter] = useState('');
+    const filteredList = products.filter(product => 
+        product.productName.toLowerCase().includes(filter.toLowerCase())
+    );
+
     return (
-        <>
-        <Input onChange={(e) => {
-            setFiltered(e.target.value)
-        }}
-            label="Nombre del producto"
-        /> 
-            {productsList.map((producto) => {
-                return (
-                    <Link key={producto.productId} href={{ pathname : `/dashboard/products/${producto.productId}`}} className="hover:scale-110">
-                        <ProductCard producto={producto}/>
-                    </Link>
-                )
-            })}
-        </>
+        <div className="flex flex-wrap md:justify-center">
+            <div className="md:w-1/3 w-full">
+                <Input id="filter-input" type="text" placeholder="Product Name" value={filter} onChange={(e) => setFilter(e.target.value)}/>
+            </div>
+            <div className="flex flex-wrap justify-center md:w-full p-3 gap-3">
+                {filteredList.map((product, index) => (
+                    <ProductCard key={index} producto={product}/>
+                ))}
+            </div>
+        </div>
     )
 }

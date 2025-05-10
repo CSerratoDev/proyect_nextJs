@@ -3,12 +3,12 @@ import { Products } from "entities";
 
 export default function ProductCard({producto} : {producto: Products}) {
     return (
-        <Card>
+        <Card className="w-64 h-32 flex bg-[#252525] text-white">
             <CardHeader></CardHeader>
-            <Divider/>
+            <Divider className="bg-black"/>
             <CardBody>
-                <p>Producto: <b>{producto.productName}</b></p>
-                <p>Precio: <b>{producto.price}</b></p>
+                <p className="truncate text-sm">Producto: <b>{producto.productName}</b></p>
+                <p className="truncate text-sm">Precio: <b>{producto.price}</b></p>
             </CardBody>
         </Card>
     )
