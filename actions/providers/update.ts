@@ -18,8 +18,8 @@ export default async function updateProvider(providerId: string, formData: FormD
                 "content-type": "application/json",
             }
         })
-        if (response.status === 201) {
+        if (response.status === 200) {
             revalidateTag("dashboard:providers")
-            redirect("/dashboard/providers");   
+            redirect("/dashboard/providers");
         }
 }

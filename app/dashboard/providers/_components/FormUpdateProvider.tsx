@@ -13,8 +13,8 @@ export default function FormUpdateProvider({provider} : {provider: Provider}) {
             <h1 className="text-2xl text-[#252525] flex justify-center p-3"><b>Actualizar Proveedor</b></h1>
             <div className="flex flex-wrap">
                 <Input defaultValue={provider.providerName} label="Nombre" placeholder="Pepsi" name="providerName"/>
-                <Input defaultValue={provider.providerEmail} label="Correo" placeholder="business@pepsi.com" name="Correo"/>
-                <Input defaultValue={provider.providerPhoneNumber} label="Numero" placeholder="4412345678" name="Numero Telefono"/>
+                <Input defaultValue={provider.providerEmail} label="Correo" placeholder="business@pepsi.com" name="providerEmail"/>
+                <Input defaultValue={provider.providerPhoneNumber} label="Numero" placeholder="4412345678" name="providerPhoneNumber"/>
                 <div className="flex justify-end ">
                 <Button className="w-1/3" variant="shadow" color="success" type="submit">Actualizar</Button>
                 </div>
