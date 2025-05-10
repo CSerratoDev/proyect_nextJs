@@ -8,9 +8,9 @@ export default function DeleteProvider({children} : {children : ReactNode}) {
   
   return (
     <div>
-      <Button onPress={onOpen} color="secondary"><LuTrash size="20"/></Button>
-      <Modal className="bg-zinc-50" isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent className="w-full">
+      <Button onPress={onOpen} color="danger"><LuTrash size="20"/></Button>
+      <Modal className="flex bg-cyan-50 " isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent className="w-50 p-3">
           {(onClose) => (
             <>
               <ModalBody>

@@ -16,22 +16,21 @@ export default async function ManagerCard () {
     });
     const data: Manager[] = await response.json();
     return  (
-        <div>
+        <div className="flex flex-wrap justify-center gap-6 p-4">
             {data.map((mgr) => {
                 return (
                     <Link key={mgr.managerId} href={{pathname:`/dashboard/managers/${mgr.managerId}`}}>
-                        <Card className="mx-10 my-10 hover:scale-105 bg-white text-[#252525] hover:bg-[#252525] hover:text-white">
-                            <CardHeader><p className="w-full">Nombre: <b>{mgr.managerFullName}</b></p></CardHeader>    
+                        <Card className="w-64 h-32 flex flex-col justify-between hover:scale-105 transition-all duration-200 bg-white text-[#252525] hover:bg-[#252525] hover:text-white">
+                            <CardHeader><p className="truncate text-md">Nombre: <b>{mgr.managerFullName}</b></p></CardHeader>    
                             <Divider className="bg-black"/>
                             <CardBody>
-                                <p className="w-full"> Email: <b>{mgr.managerEmail}</b></p>
-                                <p className="w-full"> Telefono: <b>{mgr.managerPhoneNumber}</b></p>    
+                                <p className="truncate text-sm"> Email: <b>{mgr.managerEmail}</b></p>
+                                <p className="truncate text-sm"> Telefono: <b>{mgr.managerPhoneNumber}</b></p>    
                             </CardBody>
                         </Card>
                     </Link>
                 )
             })}
-                
         </div>
     );
 }

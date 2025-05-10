@@ -23,8 +23,8 @@ export default async function CountManagersPage() {
         salary += manager.managerSalary;
     });
     return (
-        <Card className="w-fit px-2 py-4 flex justify-start bg-white text-[#252525]">
-            <h2 className="text-2xl flex justify-center text-[#252525]"><b>Estadisticas</b></h2>
+        <Card className="w-fit px-2 py-4 flex justify-start bg-[#252525] text-white">
+            <h2 className="text-md flex justify-center text-white"><b>Estadisticas</b></h2>
             <Divider className="bg-black"/>
             <h1><b>Hay: </b>{mgr.length} Manager{mgr.length > 1 ? "s" : ""}{" "}</h1>
             <h1><b>Hay: </b> {countNoStore} sin tienda</h1>

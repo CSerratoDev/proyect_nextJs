@@ -20,9 +20,9 @@ export default async function ManagerPage(props: {params: Promise<{ id: string }
     const data : Manager = await response.json();
     
     return (
-           <div className="flex flex-col gap-10 flex-grow-0 items-center justify-center">
+           <div className="flex flex-wrap items-center justify-center">
                 <ManagersCard mgr={data} />
-                <div className="flex flex-row flex-grow-0 bg-white shadow-medium rounded-md px-10 py-2 gap-2">
+                <div className="flex flex-wrap md:flex-col rounded-md gap-3">
                     <UpdateManager>
                         <FormUpdateManager manager={data}/>
                     </UpdateManager>
